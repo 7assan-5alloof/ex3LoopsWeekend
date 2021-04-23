@@ -2,6 +2,7 @@
 
 using namespace std;
 
+int process(int);
 int main()
 {
     // Get data from user
@@ -10,38 +11,29 @@ int main()
     cin >> number;
 
     // Apply some arithmetic based on odd/even orientation until reaching the sequence 4-2-1
+    int numberUse = number;
     // Manipulate the number until it evaluates to 4 in the sequence
-    while (number != 4)
-    {
-        if (number % 2 == 0) number /= 2;
-        else if (number % 2 != 0)
-        {
-            number *= 3;
-            number += 1;
-        }
-    }
+    while (numberUse != 4) numberUse = process(numberUse);
+    cout << numberUse;
 
     // Manipulate the number until it evaluates to 2 in the sequence
-    while (number != 2)
-    {
-        if (number % 2 == 0) number /= 2;
-        else if (number % 2 != 0)
-        {
-            number *= 3;
-            number += 1;
-        }
-    }
+    while (numberUse != 2) numberUse = process(numberUse);
+    cout << numberUse;
 
     // Manipulate the number until it evaluates to 1 in the sequence
-    while (number != 1)
-    {
-        if (number % 2 == 0) number /= 2;
-        else if (number % 2 != 0)
-        {
-            number *= 3;
-            number += 1;
-        }
-    }
+    while (numberUse != 1) numberUse = process(numberUse);
+    cout << numberUse;
 
     return 0;
+}
+
+int process(int x)
+{
+    if (x % 2 == 0) x /= 2;
+    else if (x % 2 != 0)
+    {
+        x *= 3;
+        x += 1;
+    }
+    return x;
 }
